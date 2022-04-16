@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <% if(weekDay === 'Sunday') { %>
+    <h1>It's <%= weekDay %>, rest day 🌻</h1>
+  <% } else if(weekDay === 'Monday') { %>
+    <h1>It's <%= weekDay %>, do day 🌸</h1>
+  <% } else if(weekDay === 'Tuesday') { %>
+    <h1>It's <%= weekDay %>, partial day 🌹</h1> 
+  <% } else if(weekDay === 'Wednesday') { %>
+    <h1>It's <%= weekDay %>, hump day 🌺</h1>
+  <% } else if(weekDay === 'Thursday') { %>
+    <h1>It's <%= weekDay %>, almost day 🌼</h1>
+  <% } else if(weekDay === 'Friday') { %>
+    <h1>It's <%= weekDay %>, VENUS day 💐</h1> 
+  <% } else if(weekDay === 'Saturday') { %>
+    <h1>It's <%= weekDay %>, chillaxion day 🌷</h1>
+  <% } else { %>
+    <h1>Something might be broken on the backend, call your webmaster please!</h1>
+  <% } %>
+</body>
+</html>
