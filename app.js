@@ -4,6 +4,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const https = require('https');
 const ejs = require('ejs');
+const date = require(__dirname + '/date');
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -12,19 +13,12 @@ app.set('view engine', 'ejs');
 
 //----------- Global variables -----------
 let items = [];
+let year = date.getYear();
 
 app.get('/', (req, res) => {
-  let options = {
-    weekday: 'long',
-    day: 'numeric',
-    month: 'long'
-  }
+  let day = date.getDate();
   
-  let today = new Date;
-  let actualDate = today.toLocaleDateString('en-US', options);
-
-
-  res.render('list', { weekDay: actualDate, listItems: items });
+  res.render('list', { weekDay: day, listItems: items, theYear: year });
 })
 
 app.post('/', (req, res) => {
@@ -34,7 +28,9 @@ app.post('/', (req, res) => {
   res.redirect('/')
 })
 
-
+app.get('/about', (req, res) => {
+  res.render('about', { theYear: year });
+})
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}, baby, YEAH!`);
