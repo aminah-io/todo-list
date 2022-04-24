@@ -1,19 +1,21 @@
-<%- include('header'); -%>
+<%- include('header') -%>
 <%- include('heading') -%>
   <h1 class="white center">To Do List</h1>
   <h2 class="box white center"><%= weekDay %></h2>
   <hr>
   <div class="box">
     <% listItems.forEach(function(item) { %>
-      <div class="white item">
-        <input type="checkbox" >
-        <p><%= item %></p>
-      </div>
+      <form action="/delete" method="post">
+        <div class="white item">
+          <input name="checkbox" value="<%= item._id %>" onChange="this.form.submit()" type="checkbox">
+          <p><%= item.name %></p>
+        </div>
+      </form>
     <% }) %>
 
-    <form action="/" method="post">
+    <form class="item" action="/" method="post">
       <input type="text" name="newItem" class="white new-item" placeholder="Add new item..." autocomplete="off">
       <button type="submit" name="button" class="submit">+</button>
     </form>
   </div>
-  <%- include('footer'); -%>
+  <%- include('footer') -%>
